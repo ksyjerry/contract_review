@@ -79,7 +79,7 @@ if pdf_file is not None:
         st.write(answer)
 
     else:
-        time.sleep(30)
+        time.sleep(120)
 
 
 
