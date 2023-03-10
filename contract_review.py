@@ -4,9 +4,7 @@ import streamlit as st
 import time
 
 
-apiKey = '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'
-
-openai.api_key = apiKey
+openai.api_key = st.secrets["api_secret"]
 
 st.title('삼일회계법인 GPT')
 st.header('계약서 Review-Bot')
