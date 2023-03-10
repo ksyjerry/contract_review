@@ -56,7 +56,7 @@ if pdf_file is not None:
     conversation.append({'role':'system','content':'다음 계약서를 읽고 묻는 질문에 답변해줘'})
     # conversation = chatGPT_conversation(conversation)
 
-    for i in range(n):
+    for i in range(4):
         conversation.append({"role": "system", "content": page_obj[i]})
         # conversation = chatGPT_conversation(conversation)
 
