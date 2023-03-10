@@ -9,7 +9,7 @@ openai.api_key = st.secrets["api_secret"]
 st.title('삼일회계법인 GPT')
 st.header('계약서 Review-Bot')
 st.write('계약서를 업로드하고 무엇이든 물어보세요!')
-st.write('Developed by Assurance DA (jae-dong.kim@pwc.com)')
+st.write('Developed by Assurance DA (김재동 : jae-dong.kim@pwc.com)')
 
 
 
