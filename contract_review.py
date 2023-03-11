@@ -62,7 +62,7 @@ if pdf_file is not None:
 
     # print(conversation)
 
-    k=0
+#     k=0
 
     
 
