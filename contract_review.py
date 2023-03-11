@@ -71,15 +71,14 @@ if pdf_file is not None:
     user_msg = st.text_input('계약서에 대하여 무엇이 궁금하신가요?')
 
     # 사용자의 입력이 있는 경우
-    if user_msg:
+    if st.button('번역문 생성하기'):
         conversation.append({"role":"user","content":user_msg})
         conversation = chatGPT_conversation(conversation)
-
         answer = conversation[-1]['content']
-        st.write(answer)
+        st.info(answer)
 
-    else:
-        time.sleep(120)
+#     else:
+#         time.sleep(120)
 
 
 
