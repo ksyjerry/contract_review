@@ -6,10 +6,11 @@ import time
 
 openai.api_key = st.secrets["api_secret"]
 
-st.title('Assurance DA')
+# st.title('Assurance DA')
 st.header('AI Consultant - 계약서검토')
-st.write('Developed by Assurance DA (문의 : jae-dong.kim@pwc.com)', text_align='right')
-st.write('')
+st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 : jae-dong.kim@pwc.com)</div>", unsafe_allow_html=True)
+st.write("")
+
 st.write('계약서를 업로드하고 무엇이든 물어보세요!')
 
 
