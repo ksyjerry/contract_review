@@ -5,11 +5,11 @@ import streamlit as st
 openai.api_key = st.secrets["api_secret"]
 
 
-st.title('Assurance DA')
+
 st.header('AI Consultant - 스마트번역')
 
 st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 : jae-dong.kim@pwc.com)</div>", unsafe_allow_html=True)
-
+st.write("")
 
 
 terms = st.text_area('번역에 사용할 용어를 입력해주세요.', height=100, placeholder ='금융자산 : financial asset \n금융부채 : financial liability')
