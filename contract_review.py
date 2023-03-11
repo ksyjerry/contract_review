@@ -9,7 +9,7 @@ openai.api_key = st.secrets["api_secret"]
 st.title('PwC AI Consultant')
 st.header('계약서검토 Assistant')
 st.write('계약서를 업로드하고 무엇이든 물어보세요!')
-st.write('Developed by Assurance DA (문의:jae-dong.kim@pwc.com)')
+st.write("Developed by Assurance DA (문의:jae-dong.kim@pwc.com)")
 
 
 
