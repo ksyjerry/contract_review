@@ -5,7 +5,7 @@ import streamlit as st
 openai.api_key = st.secrets["api_secret"]
 
 
-st.title('PwC AI Consultant')
+st.title('Assurance DA : AI Consultant')
 st.header('Smart Translator')
 st.write('Developed by Assurance DA (문의 : jae-dong.kim@pwc.com)')
 
