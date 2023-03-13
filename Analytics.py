@@ -4,7 +4,6 @@ import pandas as pd
 import io
 
 
-apiKey = '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'
 
 openai.api_key = apiKey
 
