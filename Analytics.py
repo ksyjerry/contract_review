@@ -9,8 +9,8 @@ apiKey = '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'
 openai.api_key = apiKey
 
 st.title('Assurance DA')
-st.header('계약서 Review-Bot')
-st.write('계약서를 업로드하고 무엇이든 물어보세요!')
+st.header('Analytics Machine')
+st.write('원장을 업로드하고 무엇이든 물어보세요!')
 st.write('Developed by Assurance DA (jae-dong.kim@pwc.com)')
 
 
@@ -18,7 +18,7 @@ st.write('Developed by Assurance DA (jae-dong.kim@pwc.com)')
 file = st.file_uploader("파일을 선택하세요(excel만 가능)", type = ['xlsx','xls'])
 
 def get_text():
-    input_text = st.text_input('계약서에 대하여 무엇이 궁금하신가요? ' , key ='input')
+    input_text = st.text_input('해당 계정에 대하여 무엇이 궁금하신가요? ' , key ='input')
     return input_text
 
 def chatGPT_conversation(conversation):
