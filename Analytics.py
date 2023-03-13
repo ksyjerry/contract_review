@@ -5,7 +5,7 @@ import io
 
 
 
-openai.api_key = apiKey
+openai.api_key = st.secrets["api_secret"]
 
 st.title('Assurance DA')
 st.header('AI Consultant - Analytics')
