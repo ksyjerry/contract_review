@@ -9,7 +9,7 @@ apiKey = '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'
 openai.api_key = apiKey
 
 st.title('Assurance DA')
-st.header('Analytics Machine')
+st.header('AI Consultant - Analytics')
 st.write('원장을 업로드하고 무엇이든 물어보세요!')
 st.write('Developed by Assurance DA (jae-dong.kim@pwc.com)')
 
