@@ -12,7 +12,8 @@ st.header('Ai Game Changer - Analytics')
 st.write('원장을 업로드하고 무엇이든 물어보세요!')
 st.write('Developed by Assurance DA (jae-dong.kim@pwc.com)')
 
-
+# gpt-3.5-turbo
+# gpt-4
 
 file = st.file_uploader("파일을 선택하세요(excel만 가능)", type = ['xlsx','xls'])
 
@@ -22,7 +23,7 @@ def get_text():
 
 def chatGPT_conversation(conversation):
     response = openai.ChatCompletion.create(
-            model = 'gpt-3.5-turbo',
+            model = 'gpt-4',
             messages = conversation
             
     )
