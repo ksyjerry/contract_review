@@ -28,7 +28,7 @@ if len(article_text) >1500:
 else:
     if st.button('번역문 생성하기'):
         completions = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4",
         messages=[
         {"role": "system", "content": order},
         # {"role": "system", "content": "결제일 회계처리방법:settlement date accounting \n 실무적 간편법: practical expedient \n 후속적으로 상각후원가로 측정하는 자산: an asset that is subsequently measured at amortised cost"},
