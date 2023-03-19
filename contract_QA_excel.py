@@ -9,8 +9,7 @@ from io import BytesIO
 # from pyxlsb import open_workbook as open_xlsb
 
 
-api_secret = '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'
-openai.api_key = api_secret
+openai.api_key = st.secrets["api_secret"]
 
 st.title('Assurance DA')
 st.header('AI Consultant - 계약서검토')
