@@ -12,7 +12,7 @@ from io import BytesIO
 openai.api_key = st.secrets["api_secret"]
 
 st.title('Assurance DA')
-st.header('AI Game Changer - Contract Q&A Excel')
+st.header('AI Game Changer - Contract Q&A Advanced')
 st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 : <a href = \"mailto:jae-dong.kim@pwc.com\">jae-dong.kim@pwc.com</a>)</div>", unsafe_allow_html=True)
 st.write("")
 st.markdown("<br>", unsafe_allow_html=True)
