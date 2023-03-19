@@ -3,10 +3,7 @@ import streamlit as st
 import pandas as pd
 import io
 
-
-api_secret = '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'
-openai.api_key = api_secret
-# openai.api_key = st.secrets["api_secret"]
+openai.api_key = st.secrets["api_secret"]
 
 
 
