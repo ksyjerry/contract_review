@@ -21,6 +21,14 @@ st.write('계약서를 업로드하고 무엇이든 물어보세요!')
 
 uploaded_files = None
 csv_file = None
+
+engine = st.radio("GPT모델을 선택해주세요",  ('GPT3.5', 'GPT4'))
+
+if engine =='GPT3.5':
+    engine_model = "gpt-3.5-turbo"
+else:
+    engine_model = "gpt-4"
+
 uploaded_files = st.file_uploader("PDF 파일을 업로드하세요(다수의 파일 가능).", type="pdf", accept_multiple_files=True)
 csv_file = st.file_uploader("질문 파일을 선택하세요(csv만 가능 1열 제목, 2열 질문)", type=['csv'])
 
@@ -29,7 +37,7 @@ csv_file = st.file_uploader("질문 파일을 선택하세요(csv만 가능 1열
 
 def chatGPT_conversation(conversation_input):
     response = openai.ChatCompletion.create(
-            model='gpt-3.5-turbo',
+            model=engine_model,
             messages=conversation_input
     )
 
