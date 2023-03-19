@@ -12,12 +12,12 @@ from io import BytesIO
 openai.api_key = st.secrets["api_secret"]
 
 st.title('Assurance DA')
-st.header('AI Game Changer - Contract Q&A Advanced')
+st.header('AI Game Changer - Vouching Machine')
 st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 : <a href = \"mailto:jae-dong.kim@pwc.com\">jae-dong.kim@pwc.com</a>)</div>", unsafe_allow_html=True)
 st.write("")
 st.markdown("<br>", unsafe_allow_html=True)
 
-st.write('계약서를 업로드하고 무엇이든 물어보세요!')
+st.write('증빙을 업로드하고 무엇이든 물어보세요!')
 
 uploaded_files = None
 csv_file = None
@@ -29,7 +29,7 @@ if engine =='GPT3.5':
 else:
     engine_model = "gpt-4"
 
-uploaded_files = st.file_uploader("PDF 파일을 업로드하세요(다수의 파일 가능).", type="pdf", accept_multiple_files=True)
+uploaded_files = st.file_uploader("증빙 PDF 파일을 업로드하세요(다수의 파일 가능).", type="pdf", accept_multiple_files=True)
 csv_file = st.file_uploader("질문 파일을 선택하세요(csv만 가능 1열 제목, 2열 질문)", type=['csv'])
 
 # gpt-4
@@ -107,7 +107,7 @@ if uploaded_files is not None and csv_file is not None:
             conversation.append(
                 {
                     'role': 'system',
-                    'content': '다음 계약서를 읽고 묻는 질문에 답변을 기재하고 답변을 찾을 수 있는 조항을 문장 마지막에 괄호안에 알려줘: '
+                    'content': '다음 문서를 읽고 묻는 질문에 답변을 기재하고 답변을 찾을 수 있는 조항을 문장 마지막에 괄호안에 알려줘: '
                 }
             )
             st.subheader(uploaded_file.name)
