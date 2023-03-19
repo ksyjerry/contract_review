@@ -18,9 +18,9 @@ lang = st.radio("번역문으로 반환될 언어를 선택해주세요",  ('국
 
 
 if lang =='국문':
-    order = "Please translate every sentence in the following paragraphs in Korean using following terms" +article_text
+    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Korean using following terms" +article_text
 else:
-    order = "Please translate every sentence in the following paragraphs in English using following terms" +article_text
+    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in English using following terms" +article_text
 
 if len(article_text) >1500:
     st.warning('좀 더 짧은 텍스트를 입력해주세요')
