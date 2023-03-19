@@ -29,7 +29,7 @@ csv_file = st.file_uploader("질문 파일을 선택하세요(csv만 가능 1열
 
 def chatGPT_conversation(conversation_input):
     response = openai.ChatCompletion.create(
-            model='gpt-4',
+            model='gpt-3.5-turbo',
             messages=conversation_input
     )
 
