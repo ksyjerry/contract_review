@@ -102,6 +102,7 @@ if uploaded_files is not None and csv_file is not None:
                     'content': '다음 계약서를 읽고 묻는 질문에 답변을 기재하고 답변을 찾을 수 있는 조항을 문장 마지막에 괄호안에 알려줘: '
                 }
             )
+            st.subheader(uploaded_file.name)
         # 페이지 수만큼 반복문 돌면서 텍스트 추출
             for page in range(min(4,num_pages)):
                 # 페이지 번호에 해당하는 페이지 객체 가져오기
@@ -118,7 +119,7 @@ if uploaded_files is not None and csv_file is not None:
                 row_title = row[0]
                 row_question = row[1]
 
-                st.subheader(row_title)
+                st.write(row_title)
                 row_answer = ask_question(conversation, row_question)
                 df_result.loc[i, uploaded_file.name] = row_answer.strip()
 
