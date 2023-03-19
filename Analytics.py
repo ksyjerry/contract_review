@@ -4,11 +4,14 @@ import pandas as pd
 import io
 
 
+api_secret = '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'
+openai.api_key = api_secret
+# openai.api_key = st.secrets["api_secret"]
 
-openai.api_key = st.secrets["api_secret"]
+
 
 st.title('Assurance DA')
-st.header('AI Consultant - Analytics')
+st.header('Ai Game Changer - Analytics')
 st.write('원장을 업로드하고 무엇이든 물어보세요!')
 st.write('Developed by Assurance DA (jae-dong.kim@pwc.com)')
 
@@ -17,7 +20,7 @@ st.write('Developed by Assurance DA (jae-dong.kim@pwc.com)')
 file = st.file_uploader("파일을 선택하세요(excel만 가능)", type = ['xlsx','xls'])
 
 def get_text():
-    input_text = st.text_input('해당 계정에 대하여 무엇이 궁금하신가요? ' , key ='input')
+    input_text = st.text_input('해당계정과목에 대하여 무엇이 궁금하신가요? ' , key ='input')
     return input_text
 
 def chatGPT_conversation(conversation):
@@ -61,14 +64,14 @@ if file is not None:
     df.to_csv(s, sep='\t')
     journal = s.getvalue()
 
-    st.info(journal)
+    # st.info(journal)
 
 
     conversation.append({"role": "system", "content": journal})
         # conversation = chatGPT_conversation(conversation)
 
     # 사용자의 입력 받기
-    user_msg = st.text_input('계약서에 대하여 무엇이 궁금하신가요?')
+    user_msg = st.text_input('해당계정에 대하여 무엇이 궁금하신가요?')
 
 
     # 사용자의 입력이 있는 경우
