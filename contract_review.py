@@ -57,6 +57,7 @@ if pdf_file is not None:
 
     conversation = []
     conversation.append({'role':'system','content':'다음 계약서를 읽고 묻는 질문에 답변을 기재하고 답변을 찾을 수 있는 조항을 문장 마지막에 괄호안에 알려줘: '})
+    conversation.append({'role':'system','content':'다음 단어가 나오면 이렇게 번역해줘 non-cancellable period - 해지불능기간, lessee - 리스이용자, lessor - 리스제공자: '})
     # conversation = chatGPT_conversation(conversation)
 
     for i in range(min(n,7)):
