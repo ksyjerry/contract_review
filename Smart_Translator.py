@@ -16,13 +16,19 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 terms = st.text_area('번역에 사용할 용어를 입력해주세요.', height=100, placeholder ='금융자산 : financial asset \n금융부채 : financial liability')
 article_text = st.text_area('번역할 문장을 입력해주세요.', height=300, placeholder ='1500문자 이내로 입력')
-lang = st.radio("번역문으로 반환될 언어를 선택해주세요",  ('국문', '영문', '중문'))
+lang = st.radio("번역문으로 반환될 언어를 선택해주세요",  ('국문', '영문', '중문','일문','프랑스어','스페인어'))
 
 
 if lang =='국문':
     order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Korean using following terms" +article_text
 elif lang=='중문':
     order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Chinese Mandarin using following terms" +article_text
+elif lang=='일문':
+    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Japanese using following terms" +article_text
+elif lang=='프랑스어':
+    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in French using following terms" +article_text
+elif lang=='스페인어':
+    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Spanish using following terms" +article_text
 else:
     order = "You are an accounting expert. Please translate every sentence in the following paragraphs in English using following terms" +article_text
 
