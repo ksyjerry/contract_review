@@ -17,21 +17,32 @@ st.markdown("<br>", unsafe_allow_html=True)
 terms = st.text_area('번역에 사용할 용어를 입력해주세요.', height=100, placeholder ='금융자산 : financial asset \n금융부채 : financial liability')
 article_text = st.text_area('번역할 문장을 입력해주세요.', height=300, placeholder ='1500문자 이내로 입력')
 lang = st.radio("번역문으로 반환될 언어를 선택해주세요",  ('국문', '영문', '중문','일문','프랑스어','스페인어'))
+choice = st.radio("번역 스타일을 설정해주세요",  ('비즈니스 어체', '격식있는 번역', '캐주얼 어투','계약서 번역'))
 
 
 if lang =='국문':
-    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Korean using following terms" +article_text
+    order = "You are an accounting and legal expert. Please translate every sentence in the following paragraphs in Korean using following terms" 
 elif lang=='중문':
-    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Chinese Mandarin using following terms" +article_text
+    order = "You are an accounting and legal expert. Please translate every sentence in the following paragraphs in Chinese Mandarin using following terms" 
 elif lang=='일문':
-    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Japanese using following terms" +article_text
+    order = "You are an accounting and legal expert. Please translate every sentence in the following paragraphs in Japanese using following terms" 
 elif lang=='프랑스어':
-    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in French using following terms" +article_text
+    order = "You are an accounting and legal expert. Please translate every sentence in the following paragraphs in French using following terms" 
 elif lang=='스페인어':
-    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in Spanish using following terms" +article_text
+    order = "You are an accounting and legal expert. Please translate every sentence in the following paragraphs in Spanish using following terms" 
 else:
-    order = "You are an accounting expert. Please translate every sentence in the following paragraphs in English using following terms" +article_text
+    order = "You are an accounting and legal expert. Please translate every sentence in the following paragraphs in English using following terms" 
 
+if choice =='비즈니스 어체':
+    method = "Please translate them into business language."
+elif choice=='격식있는 번역':
+    method = "Please translate them into formal language."
+elif choice=='캐주얼 어투':
+    method = "Please translate them into casual language."
+else:
+    method = "The following paragraphs are a business contract. When you translate, try your best to make it business formal contract as much as you can"
+
+    
 if len(article_text) >1500:
     st.warning('좀 더 짧은 텍스트를 입력해주세요')
 
@@ -41,7 +52,7 @@ else:
         model="gpt-4",
         messages=[
         {"role": "system", "content": order},
-        # {"role": "system", "content": "결제일 회계처리방법:settlement date accounting \n 실무적 간편법: practical expedient \n 후속적으로 상각후원가로 측정하는 자산: an asset that is subsequently measured at amortised cost"},
+        {"role": "system", "content": method},
         {"role": "system", "content": terms},
         {"role": "user", "content": article_text}
 
