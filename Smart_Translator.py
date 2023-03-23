@@ -17,7 +17,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 terms = st.text_area('번역에 사용할 용어를 입력해주세요.', height=100, placeholder ='금융자산 : financial asset \n금융부채 : financial liability')
 article_text = st.text_area('번역할 문장을 입력해주세요.', height=300, placeholder ='1500문자 이내로 입력')
 lang = st.radio("번역문으로 반환될 언어를 선택해주세요",  ('국문', '영문', '중문','일문','프랑스어','스페인어'))
-choice = st.radio("번역 스타일을 설정해주세요",  ('비즈니스 어체', '격식있는 번역', '캐주얼 어투','계약서 번역'))
+choice = st.radio("번역 스타일을 설정해주세요",  ('비즈니스 어체', '격식있는 어체', '캐주얼 어체','계약서 번역'))
 
 
 if lang =='국문':
@@ -35,9 +35,9 @@ else:
 
 if choice =='비즈니스 어체':
     method = "Please translate them into business language."
-elif choice=='격식있는 번역':
+elif choice=='격식있는 어체':
     method = "Please translate them into formal language."
-elif choice=='캐주얼 어투':
+elif choice=='캐주얼 어체':
     method = "Please translate them into casual language."
 else:
     method = "The following paragraphs are a business contract. When you translate, try your best to make it business formal contract as much as you can"
