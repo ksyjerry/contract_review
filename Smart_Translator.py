@@ -49,7 +49,7 @@ if len(article_text) >1500:
 else:
     if st.button('번역문 생성하기'):
         completions = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[
         {"role": "system", "content": order},
         {"role": "system", "content": method},
