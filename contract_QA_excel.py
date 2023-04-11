@@ -107,7 +107,7 @@ if uploaded_files is not None and csv_file is not None:
             conversation.append(
                 {
                     'role': 'system',
-                    'content': '다음 문서를 읽고 묻는 질문에 답변을 기재하고 답변을 찾을 수 있는 조항을 문장 마지막에 괄호안에 알려줘: '
+                    'content': '다음 문서를 읽고 묻는 질문에 답변을 기재해줘: '
                 }
             )
             st.subheader(uploaded_file.name)
