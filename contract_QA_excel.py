@@ -107,7 +107,7 @@ if uploaded_files is not None and csv_file is not None:
             conversation.append(
                 {
                     'role': 'system',
-                    'content': '다음 문서를 읽고 묻는 질문에 답변을 기재해줘: '
+                    'content': '다음 문서를 읽고 묻는 질문에 대한 답변만을 정확하게 기재해줘: '
                 }
             )
             st.subheader(uploaded_file.name)
