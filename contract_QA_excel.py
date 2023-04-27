@@ -83,7 +83,7 @@ def to_excel(df):
 if uploaded_files is not None and csv_file is not None:
     
 
-    dataframe = pd.read_csv(csv_file)
+    dataframe = pd.read_csv(csv_file, encoding='cp949')
     st.subheader('기본 질문 리스트')
     st.write(dataframe.iloc[:,0])
     n=0
