@@ -135,10 +135,10 @@ if uploaded_files is not None and csv_file is not None:
 
 
 
-        df_xlsx = to_excel(df_result)
+        df_xlsx = df_result.to_excel('df_test.xlsx')
         st.download_button(label='결과 파일 다운로드',
                                 data=df_xlsx ,
-                                file_name= 'df_test.xlsx')
+                                file_name= 'df_result.xlsx')
 
 
     
