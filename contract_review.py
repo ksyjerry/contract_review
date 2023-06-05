@@ -60,7 +60,7 @@ if pdf_file is not None:
 #     conversation.append({'role':'system','content':'다음 단어가 나오면 이렇게 번역해줘 non-cancellable period - 해지불능기간, lessee - 리스이용자, lessor - 리스제공자: '})
     # conversation = chatGPT_conversation(conversation)
 
-    for i in range(min(n,24)):
+    for i in range(min(n,7)):
         conversation.append({"role": "system", "content": page_obj[i]})
         # conversation = chatGPT_conversation(conversation)
 
