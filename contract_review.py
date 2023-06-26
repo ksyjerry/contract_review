@@ -12,7 +12,7 @@ st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 :
 st.write("")
 st.markdown("<br>", unsafe_allow_html=True)
 
-st.write('계약서를 업로드하고 무엇이든 물어보세요!')
+st.write('문서를 업로드하고 무엇이든 물어보세요!')
 
 
 
@@ -24,7 +24,7 @@ def get_text():
 
 def chatGPT_conversation(conversation):
     response = openai.ChatCompletion.create(
-            model = 'gpt-4',
+            model = 'gpt-3.5-turbo-16k',
             messages = conversation
             
     )
