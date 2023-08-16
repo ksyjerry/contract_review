@@ -18,15 +18,15 @@ option = st.radio(
     "언어모델을 선택하세요",
     ("GPT4", "GPT3.5")
 )
-st.write("GPT4는 성능이 좋으나 느리며 약 6천단어만 가능합니다. GPT3.5는 성능이 다소 떨어지나 빠르며 약 12천단어까지 가능합니다.")
+st.write("GPT4는 성능이 좋으나 느리며 약 7페이지만 가능합니다. GPT3.5는 성능이 다소 떨어지나 빠르며 약 14페이지까지 가능합니다.")
 
 # 선택된 옵션에 따라 메시지 출력
 if option == "GPT4":
     llm_model = 'gpt-4'
-    n_page = 30
+    n_page = 7
 else:
     llm_model = 'gpt-3.5-turbo-16k'
-    n_page = 30
+    n_page = 14
 
 st.write('문서를 업로드하고 무엇이든 물어보세요!')
 
