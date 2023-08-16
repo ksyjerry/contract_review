@@ -12,6 +12,20 @@ st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 :
 st.write("")
 st.markdown("<br>", unsafe_allow_html=True)
 
+st.title("언어모델 선택")
+
+# 라디오 버튼을 사용하여 토글 버튼 생성
+option = st.radio(
+    "언어모델을 선택하세요",
+    ("GPT4-8k", "GPT3.5-16k")
+)
+
+# 선택된 옵션에 따라 메시지 출력
+if option == "GPT4-8k":
+    llm_model = 'gpt-4'
+else:
+    llm_model = 'gpt-3.5-turbo-16k'
+
 st.write('문서를 업로드하고 무엇이든 물어보세요!')
 
 
@@ -24,7 +38,7 @@ def get_text():
 
 def chatGPT_conversation(conversation):
     response = openai.ChatCompletion.create(
-            model = 'gpt-4',
+            model = llm_model,
             messages = conversation
             
     )
