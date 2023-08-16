@@ -23,10 +23,10 @@ st.write("GPT4는 성능이 좋으나 느리며 약 6천단어만 가능합니�
 # 선택된 옵션에 따라 메시지 출력
 if option == "GPT4":
     llm_model = 'gpt-4'
-    n_page = 7
+    n_page = 30
 else:
     llm_model = 'gpt-3.5-turbo-16k'
-    n_page = 14
+    n_page = 30
 
 st.write('문서를 업로드하고 무엇이든 물어보세요!')
 
