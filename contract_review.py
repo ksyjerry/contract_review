@@ -12,19 +12,21 @@ st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 :
 st.write("")
 st.markdown("<br>", unsafe_allow_html=True)
 
-st.title("언어모델 선택")
 
 # 라디오 버튼을 사용하여 토글 버튼 생성
 option = st.radio(
     "언어모델을 선택하세요",
-    ("GPT4-8k", "GPT3.5-16k")
+    ("GPT4", "GPT3.5")
 )
+st.write("GPT4는 성능이 좋으나 느리며 약 6천단어만 가능합니다. GPT3.5는 성능이 다소 떨어지나 빠르며 약 12천단어까지 가능합니다.")
 
 # 선택된 옵션에 따라 메시지 출력
-if option == "GPT4-8k":
+if option == "GPT4":
     llm_model = 'gpt-4'
+    n_page = 7
 else:
     llm_model = 'gpt-3.5-turbo-16k'
+    n_page = 14
 
 st.write('문서를 업로드하고 무엇이든 물어보세요!')
 
@@ -74,7 +76,7 @@ if pdf_file is not None:
 #     conversation.append({'role':'system','content':'다음 단어가 나오면 이렇게 번역해줘 non-cancellable period - 해지불능기간, lessee - 리스이용자, lessor - 리스제공자: '})
     # conversation = chatGPT_conversation(conversation)
 
-    for i in range(min(n,7)):
+    for i in range(min(n,n_page)):
         conversation.append({"role": "system", "content": page_obj[i]})
         # conversation = chatGPT_conversation(conversation)
 
