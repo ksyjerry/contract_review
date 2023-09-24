@@ -13,7 +13,7 @@ st.header('AI Game Changer - Smart Translator')
 st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 : <a href = \"mailto:jae-dong.kim@pwc.com\">jae-dong.kim@pwc.com</a>)</div>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
-
+st.write("비용 문제로 GPT 3.5 버전을 이용합니다")
 terms = st.text_area('번역에 사용할 용어를 입력해주세요.', height=100, placeholder ='금융자산 : financial asset \n금융부채 : financial liability')
 article_text = st.text_area('번역할 문장을 입력해주세요.', height=300, placeholder ='1500문자 이내로 입력')
 lang = st.radio("번역문으로 반환될 언어를 선택해주세요",  ('국문', '영문', '중문','일문','프랑스어','스페인어'))
@@ -43,13 +43,13 @@ else:
     method = "The following paragraphs are a business contract. When you translate, try your best to make it business formal contract as much as you can"
 
     
-if len(article_text) >1500:
+if len(article_text) >3000:
     st.warning('좀 더 짧은 텍스트를 입력해주세요')
 
 else:
     if st.button('번역문 생성하기'):
         completions = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo-16k",
         messages=[
         {"role": "system", "content": order},
         {"role": "system", "content": method},
