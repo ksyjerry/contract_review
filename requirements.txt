@@ -7,3 +7,7 @@ pandas==1.4.4
 PyPDF2==3.0.1
 xlsxwriter==3.0.3
 openpyxl==3.0.10
+pypdf
+chromadb
+tiktoken
+pysqlite3-binary
