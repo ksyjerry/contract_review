@@ -3,8 +3,8 @@ import sys
 sys.modules['sqlite3']= sys.modules.pop('pysqlite3')
 
 
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -16,9 +16,24 @@ from langchain.chains import RetrievalQA
 import streamlit as st
 import tempfile
 import os
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.callbacks.base import BaseCallbackHandler
 
-st.title("ChatPDF")
+class StreamHandler(BaseCallbackHandler):
+    def __init__(self, container, initial_text = ""):
+        self.container = container
+        self.text = initial_text
+    def in_llm_new_token(self, token:str, **kwargs) -> None:
+        self.text += token
+        self.container.markdown(self.text)
 
+
+
+st.title('Assurance DA')
+st.header('AI Game Changer - Document Ai')
+st.markdown("<div style='text-align: right;'>Developed by Assurance DA (문의 : <a href = \"mailto:jae-dong.kim@pwc.com\">jae-dong.kim@pwc.com</a>)</div>", unsafe_allow_html=True)
+st.write("")
+st.markdown("<br>", unsafe_allow_html=True)
 st.write("---")
 
 def pdf_to_document(file):
@@ -65,26 +80,16 @@ if uplodated_file is not None:
     question = st.text_input('질문을 입력하세요')
     if st.button('질문하기'):
         with st.spinner('답변을 생성하는 중입니다.'):
+            chat_box = st.empty()
+            stream_handler = StreamHandler(chat_box)
 
-            llm = ChatOpenAI(model = "gpt-4", temperature=0, max_tokens=4000)
+
+            llm = ChatOpenAI(model = "gpt-4", temperature=0, max_tokens=4000,streaming=True, callbacks=[stream_handler])
+
 
             # retriever_from_llm = MultiQueryRetriever.from_llm(retriever=db.as_retriever(), llm= llm)
 
             # docs = retriever_from_llm.get_relevant_documents(query = question)
 
             qa_chain = RetrievalQA.from_chain_type(retriever = db.as_retriever(), llm = llm)
-            result = qa_chain({"query":question})
-
-            st.write(result['result'])
-
-
-
-
-
-
-
-
-
-
-
-
+            qa_chain({"query":question})
