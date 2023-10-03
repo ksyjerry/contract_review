@@ -23,7 +23,7 @@ class StreamHandler(BaseCallbackHandler):
     def __init__(self, container, initial_text = ""):
         self.container = container
         self.text = initial_text
-    def in_llm_new_token(self, token:str, **kwargs) -> None:
+    def on_llm_new_token(self, token:str, **kwargs) -> None:
         self.text += token
         self.container.markdown(self.text)
 
@@ -78,6 +78,7 @@ if uplodated_file is not None:
     # 어떤 조건을 충족해야 공급자의 자산 대체권이 실질적이라고 볼 수 있나?'''
     # question = '리스계약기간이 5년이고 계약 종료 후 3년간 재계약이 가능하다면 리스기간은 몇년이라고 봐야해?'
     question = st.text_input('질문을 입력하세요')
+    query = f'하기 질문에 대한 답변과 답변을 찾을 수 있는 조항을 문장 마지막에 괄호 안에 넣어줘. 질문: {question}'
     if st.button('질문하기'):
         with st.spinner('답변을 생성하는 중입니다.'):
             chat_box = st.empty()
@@ -92,4 +93,19 @@ if uplodated_file is not None:
             # docs = retriever_from_llm.get_relevant_documents(query = question)
 
             qa_chain = RetrievalQA.from_chain_type(retriever = db.as_retriever(), llm = llm)
-            qa_chain({"query":question})
+            qa_chain({"query":query})
+
+
+            # st.write(result['result'])
+
+
+
+
+
+
+
+
+
+
+
+
